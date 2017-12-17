@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 const nobot = require('commander');
-const { version } = require('./package.json');
+const { version } = require('./package');
 
 // commands
 const setup = require('./commands/setup');
@@ -12,7 +12,7 @@ nobot
     .version(version);
 
 nobot
-    .command('setup [env]')
+    .command('setup')
     .description('prepare nobot for use')
     .action(setup);
 
@@ -26,14 +26,12 @@ nobot
 nobot
     .command('release [env]')
     .description('releases the build')
-    .option('-t, --target [target]', 'dev or prod - dev by default')
+    .option('-e, --env [env]', 'dev or prod - dev by default')
     .action(release);
 
 nobot
     .command('*')
-    .action(() => {
-        nobot.help();
-    });
+    .action(nobot.help);
 
 nobot.parse(process.argv);
 
