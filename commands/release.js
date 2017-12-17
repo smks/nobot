@@ -1,5 +1,5 @@
-const release = ({target}) => {
-  console.log('create');
+const release = () => {
+  console.log('release');
 };
-  
+
 module.exports = release;

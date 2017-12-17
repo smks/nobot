@@ -1,4 +1,4 @@
-const create = ({template, parameters}) => {
+const create = ({ template, parameters }) => {
   console.log('create');
 };
 

@@ -1,0 +1,6 @@
+{
+  "deploy": "https://github.com/smks/nobot-website.git",
+  "templates": {
+    "rock-paper-scissors": "https://github.com/smks/nobot-template-rock-paper-scissors"
+  }
+}

@@ -1,30 +1,29 @@
-'use strict';
+
 
 class PromoID {
+  constructor() {
+    this.ticket = null;
+  }
 
-    constructor() {
-        this.ticket = null;
+  set(id) {
+    if (this.ticket !== null) {
+      return;
     }
 
-    set(id) {
-        if (this.ticket !== null) {
-            return;
-        }
-
-        if (this.isValid(id) === false) {
-            throw new Error(`${id} should be numeric`);
-        }
-
-        this.ticket = id;
+    if (this.isValid(id) === false) {
+      throw new Error(`${id} should be numeric`);
     }
 
-    isValid(ticket) {
-        return RegExp(/^\d+$/).test(ticket);
-    }
+    this.ticket = id;
+  }
 
-    get() {
-        return this.ticket;
-    }
+  isValid(ticket) {
+    return RegExp(/^\d+$/).test(ticket);
+  }
+
+  get() {
+    return this.ticket;
+  }
 }
 
 module.exports = PromoID;

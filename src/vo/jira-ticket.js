@@ -1,30 +1,29 @@
-'use strict';
+
 
 class JiraTicket {
+  constructor() {
+    this.ticket = null;
+  }
 
-    constructor() {
-        this.ticket = null;
+  set(ticket) {
+    if (this.ticket !== null) {
+      return;
     }
 
-    set(ticket) {
-        if (this.ticket !== null) {
-            return;
-        }
-
-        if (this.isValid(ticket) === false) {
-            throw new Error(`${ticket} is not valid, example: 'MDD-123'`);
-        }
-
-        this.ticket = ticket;
+    if (this.isValid(ticket) === false) {
+      throw new Error(`${ticket} is not valid, example: 'MDD-123'`);
     }
 
-    isValid(ticket) {
-        return RegExp(/^MDD-\d+$/).test(ticket);
-    }
+    this.ticket = ticket;
+  }
 
-    get() {
-        return this.ticket;
-    }
+  isValid(ticket) {
+    return RegExp(/^MDD-\d+$/).test(ticket);
+  }
+
+  get() {
+    return this.ticket;
+  }
 }
 
 module.exports = JiraTicket;
