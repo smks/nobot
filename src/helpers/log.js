@@ -1,5 +1,3 @@
-
-
 require('colors');
 
 // Log output with prefix

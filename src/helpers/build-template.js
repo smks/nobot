@@ -1,9 +1,9 @@
-const shell = require('shelljs');
+const { cd, exec } = require('shelljs');
 
 const buildTemplate = (templatePath) => {
-  shell.cd(templatePath);
-  shell.exec('npm install');
-  shell.exec('npm run build');
+  cd(templatePath);
+  exec('npm install');
+  exec('npm run build');
 };
 
 module.exports = buildTemplate;

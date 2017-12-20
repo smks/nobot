@@ -4,6 +4,7 @@ const { join } = require('path');
 const { templates } = require('./../../config/repositories');
 const log = require('./../helpers/log');
 const getTemplatesPath = require('./../helpers/get-templates-path');
+const cloneRepository = require('./../helpers/clone-repository');
 
 const setupTemplates = () => {
   const templatesPath = getTemplatesPath();
