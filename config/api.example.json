@@ -1,3 +1,3 @@
 {
-    "endpoint": "http://www.opencanvas.co.uk/ocl/api/actors?ticketId={ticketId}"
+    "endpoint": "http://opencanvas.co.uk/nira/rest/api/latest/ticket"
 }
