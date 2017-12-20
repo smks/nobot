@@ -1,20 +1,18 @@
 const axios = require('axios');
-const { endpoint } = require('./../../config/');
+const { authKey, endpoint } = require('./../../config/api');
 
-const getTicketData = ticketId => {
-    return new Promise((resolve, reject) => {
-        axios({
-            url: endpoint,
-            params: {
-            authKey: 'NOBOT_123',
-            ticketId
-            }
-        })
-        .then(({ data }) => {
-            resolve(data);
-        })
-        .catch(reject);
-    });
-};
+const getTicketData = ticketId => new Promise((resolve, reject) => {
+  axios({
+    url: endpoint,
+    params: {
+      authKey,
+      ticketId,
+    },
+  })
+    .then(({ data }) => {
+      resolve(data);
+    })
+    .catch(e => reject(e));
+});
 
 module.exports = getTicketData;

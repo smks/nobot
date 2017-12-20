@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 const nobot = require('commander');
-const { version } = require('./package');
+const { version } = require('./../package');
 
 // commands
 const setup = require('./commands/setup');
@@ -19,10 +19,9 @@ nobot
 nobot
   .command('create')
   .description('creates a new game reskin')
-  .option('-i, --id <template>', 'what game template are you using?')
-  .option('-t, --template <template>', 'what game template are you using?')
+  .option('-t, --ticketId <ticketId>', 'what is the ticket ID of your game?')
   .option('-p, --parameters <parameters>', 'JSON values used for build')
-  .action(create);
+  .action((create));
 
 nobot
   .command('release [env]')

@@ -4,12 +4,12 @@
   "description": "Provides automation for building Marketing Design Promotions",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint",
-    "lintFix": "eslint **/*.js --fix",
+    "lint": "eslint src",
+    "lintFix": "eslint src/**/*.js --fix",
     "test": "mocha --recursive"
   },
   "bin": {
-    "nobot": "nobot.js"
+    "nobot": "./src/nobot.js"
   },
   "repository": {
     "type": "git",

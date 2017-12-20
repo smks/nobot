@@ -2,7 +2,7 @@
   "deploy": {
     "name": "website",
     "repo": "https://github.com/smks/nobot-website.git",
-    "path": "releases"
+    "releaseDirectory": "releases"
   },
   "templates": {
     "rock-paper-scissors": "https://github.com/smks/nobot-template-rock-paper-scissors"

@@ -3,10 +3,10 @@ const { existsSync } = require('fs-extra');
 const { join } = require('path');
 const { templates } = require('./../../config/repositories');
 const log = require('./../helpers/log');
-const getTemplatePath = require('./../helpers/get-template-path');
+const getTemplatesPath = require('./../helpers/get-templates-path');
 
 const setupTemplates = () => {
-  const templatesPath = getTemplatePath();
+  const templatesPath = getTemplatesPath();
   cd(templatesPath);
   Object.keys(templates).map((template) => {
     const templatePath = join(templatesPath, template);
