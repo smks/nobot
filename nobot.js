@@ -19,6 +19,7 @@ nobot
 nobot
   .command('create')
   .description('creates a new game reskin')
+  .option('-i, --id <template>', 'what game template are you using?')
   .option('-t, --template <template>', 'what game template are you using?')
   .option('-p, --parameters <parameters>', 'JSON values used for build')
   .action(create);
