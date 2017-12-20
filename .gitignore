@@ -69,3 +69,4 @@ repositories/website
 repositories/templates/*/
 
 config/repositories.json
+config/api.json
