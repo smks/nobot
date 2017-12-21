@@ -1,13 +1,12 @@
 const { cd, exec } = require('shelljs');
 const { existsSync } = require('fs-extra');
 const { join } = require('path');
-const { templates } = require('./../../config/repositories');
 const log = require('./../helpers/log');
 const getTemplatesPath = require('./../helpers/get-templates-path');
-const cloneRepository = require('./../helpers/clone-repository');
 
 const setupTemplates = () => {
   const templatesPath = getTemplatesPath();
+  const { templates } = readJsonSync(join('..', '..', 'config', 'repositories'));
   cd(templatesPath);
   Object.keys(templates).map((template) => {
     const templatePath = join(templatesPath, template);

@@ -3,9 +3,10 @@ const setupDeployment = require('./../setup/deployment');
 const setupTemplates = require('./../setup/templates');
 
 const setup = () => {
-  setupConfig();
-  setupDeployment();
-  setupTemplates();
+  setupConfig(() => {
+    setupDeployment();
+    setupTemplates();
+  });
 };
 
 module.exports = setup;
