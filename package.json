@@ -4,6 +4,7 @@
   "description": "Provides automation for building Marketing Design Promotions",
   "main": "index.js",
   "scripts": {
+    "init": "node ./init.js",
     "lint": "eslint src",
     "lintFix": "eslint src/**/*.js --fix",
     "test": "mocha --recursive"

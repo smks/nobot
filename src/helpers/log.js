@@ -1,20 +1,20 @@
 require('colors');
+const { ERROR, WARNING, INFO, SUCCESS } = require('./../constants/log-level');
 
-// Log output with prefix
 const log = (message, type) => {
   let colorMessage;
   switch (type) {
-    case 'error':
-      colorMessage = `[ERROR] ${message}`.red;
+    case ERROR:
+      colorMessage = `[${ERROR}] ${message}`.red;
       break;
-    case 'warning':
-      colorMessage = `[WARNING] ${message}`.yellow;
+    case WARNING:
+      colorMessage = `[${WARNING}] ${message}`.yellow;
       break;
-    case 'info':
-      colorMessage = `[INFO] ${message}`.blue;
+    case INFO:
+      colorMessage = `[${INFO}] ${message}`.blue;
       break;
-    case 'success':
-      colorMessage = `[SUCCESS] ${message}`.green;
+    case SUCCESS:
+      colorMessage = `[${SUCCESS}] ${message}`.green;
       break;
     default:
       colorMessage = message;

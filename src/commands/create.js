@@ -1,24 +1,22 @@
 require('colors');
 const { ROCK_PAPER_SCISSORS } = require('./../constants/templates');
+const { ERROR } = require('./../constants/log-level');
 const getTicketData = require('./../helpers/get-ticket-data');
 const log = require('./../helpers/log');
+// template builders
+const templateBuilderRockPaperScissors = require('./../builders/rock-paper-scissors');
 
-const create = (ticketId) => {
-
-  if (ticketId === undefined) {
-    log("You need to pass a ticket ID: e.g. 'GS-101'", 'error');
-    process.exit(0);
-  }
+const create = ticketId => {
 
   getTicketData(ticketId)
-    .then(ticketInformation => {
+    .then(({ data }) => {
 
-      const { template } = ticketInformation;
+      const { template } = data;
 
       switch (template) {
 
         case ROCK_PAPER_SCISSORS:
-          require('./../builders/rock-paper-scissors')(ticketId, ticketInformation);
+          templateBuilderRockPaperScissors(ticketId, data);
           break;
 
         default:
@@ -27,7 +25,7 @@ const create = (ticketId) => {
       }
 
     })
-    .catch(e => log(e));
+    .catch(e => log(e, ERROR));
 };
 
 module.exports = create;

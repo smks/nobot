@@ -2,12 +2,10 @@ const { cd, exec } = require('shelljs');
 const { readJsonSync, existsSync } = require('fs-extra');
 const { join } = require('path');
 const log = require('./../helpers/log');
-const getRepositoriesPath = require('./../helpers/get-repositories-path');
+const repoPath = require('./../helpers/get-repositories-path');
+const { deploy } = require('./../../config');
 
-const setupDeployment = () => {
-  const repoPath = getRepositoriesPath();
-  const { deploy } = readJsonSync(join('..', '..', 'config', 'repositories'));
-  
+const setupDeployment = () => {  
   const { name, repo, releaseDirectory } = deploy;
   const deploymentPath = join(repoPath, name);
   if (existsSync(deploymentPath)) {

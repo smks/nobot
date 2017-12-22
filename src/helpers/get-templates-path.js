@@ -1,5 +1,3 @@
-const path = require('path');
+const { join } = require('path');
 
-const templatesPath = path.join(__dirname, '..', '..', 'repositories', 'templates');
-
-module.exports = () => templatesPath;
+module.exports = join(__dirname, '..', '..', 'repositories', 'templates');;

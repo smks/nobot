@@ -1,18 +1,14 @@
 const axios = require('axios');
-const { authKey, endpoint } = require('./../../config/api');
+const { api } = require('./../../config');
 
-const getTicketData = ticketId => new Promise((resolve, reject) => {
-  axios({
+const { authKey, endpoint } = api;
+
+const getTicketData = ticketId => axios({
     url: endpoint,
     params: {
       authKey,
       ticketId,
     },
-  })
-    .then(({ data }) => {
-      resolve(data);
-    })
-    .catch(e => reject(e));
-});
+  });
 
 module.exports = getTicketData;

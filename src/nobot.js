@@ -13,28 +13,22 @@ nobot
 
 nobot
   .command('setup')
-  .description('prepare nobot for use')
+  .description('clone all the templates and deployment website')
   .action(setup);
 
 nobot
-  .command('create')
+  .command('create <ticketId>')
   .description('creates a new game reskin')
-  .option('-t, --ticketId <ticketId>', 'what is the ticket ID of your game?')
-  .option('-p, --parameters <parameters>', 'JSON values used for build')
   .action((create));
 
 nobot
   .command('release [env]')
   .description('releases the build')
-  .option('-e, --env [env]', 'dev or prod - dev by default')
+  .option('-m, --auto-merge [autoMerge]', 'merge automatically to base branch')
   .action(release);
 
 nobot
   .command('*')
-  .action(nobot.help);
+  .action(() => nobot.help());
 
 nobot.parse(process.argv);
-
-if (!nobot.args.length) {
-  nobot.help();
-}
