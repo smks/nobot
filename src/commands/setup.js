@@ -1,9 +1,9 @@
 const setupDeployment = require('./../setup/deployment');
 const setupTemplates = require('./../setup/templates');
 
-const repositories = () => {
+const setup = () => {
   setupDeployment();
   setupTemplates();
 };
 
-module.exports = repositories;
+module.exports = setup;

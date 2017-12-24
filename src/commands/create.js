@@ -4,7 +4,7 @@ const { ERROR } = require('./../constants/log-level');
 const getTicketData = require('./../helpers/get-ticket-data');
 const log = require('./../helpers/log');
 // template builders
-const templateBuilderRockPaperScissors = require('./../builders/rock-paper-scissors');
+const createRockPaperScissors = require('./../creators/rock-paper-scissors');
 
 const create = ticketId => {
 
@@ -16,7 +16,7 @@ const create = ticketId => {
       switch (template) {
 
         case ROCK_PAPER_SCISSORS:
-          templateBuilderRockPaperScissors(ticketId, data);
+          createRockPaperScissors(ticketId, data);
           break;
 
         default:

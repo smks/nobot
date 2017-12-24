@@ -5,7 +5,7 @@ const { version } = require('./../package');
 
 // commands
 const setup = require('./commands/setup');
-const build = require('./commands/build');
+const create = require('./commands/create');
 const release = require('./commands/release');
 
 nobot
@@ -17,14 +17,13 @@ nobot
   .action(setup);
 
 nobot
-  .command('build <ticketId>')
-  .description('builds a new game reskin')
-  .action((build));
+  .command('create <ticketId>')
+  .description('creates a new game reskin')
+  .action((create));
 
 nobot
   .command('release')
-  .description('releases the build')
-  .option('-m, --auto-merge [autoMerge]', 'merge automatically to base branch')
+  .description('releases core of template')
   .action(release);
 
 nobot
