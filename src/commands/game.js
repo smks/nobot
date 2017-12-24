@@ -3,10 +3,10 @@ const { ROCK_PAPER_SCISSORS } = require('./../constants/templates');
 const { ERROR } = require('./../constants/log-level');
 const getTicketData = require('./../helpers/get-ticket-data');
 const log = require('./../helpers/log');
-// template builders
+// game builders
 const createRockPaperScissors = require('./../creators/rock-paper-scissors');
 
-const create = ticketId => {
+const game = ticketId => {
 
   getTicketData(ticketId)
     .then(({ data }) => {
@@ -28,4 +28,4 @@ const create = ticketId => {
     .catch(e => log(e, ERROR));
 };
 
-module.exports = create;
+module.exports = game;

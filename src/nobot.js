@@ -5,8 +5,8 @@ const { version } = require('./../package');
 
 // commands
 const setup = require('./commands/setup');
-const create = require('./commands/create');
-const release = require('./commands/release');
+const game = require('./commands/game');
+const template = require('./commands/template');
 
 nobot
   .version(version);
@@ -17,14 +17,15 @@ nobot
   .action(setup);
 
 nobot
-  .command('create <ticketId>')
+  .command('game <ticketId>')
   .description('creates a new game reskin')
-  .action((create));
+  .action((game));
 
 nobot
-  .command('release')
+  .command('template')
   .description('releases core of template')
-  .action(release);
+  .option('-i --id [id]', 'what template to release')
+  .action(template);
 
 nobot
   .command('*')
