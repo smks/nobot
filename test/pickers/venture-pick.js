@@ -1,5 +1,3 @@
-
-
 const assert = require('chai').assert;
 const expect = require('chai').expect;
 const VenturePick = require('../../src/pickers/venture-pick');

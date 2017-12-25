@@ -1,5 +1,3 @@
-
-
 const mock = require('mock-require');
 
 mock('fs', {
