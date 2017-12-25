@@ -1,0 +1,16 @@
+{
+  "api": {
+    "authKey": "SECRET",
+    "endpoint": "http://opencanvas.co.uk/nira/rest/api/latest/ticket"
+  },
+  "deploy": {
+    "baseBranch": "master",
+    "name": "website",
+    "repo": "https://github.com/smks/nobot-website.git",
+    "coreDirectory": "core",
+    "releaseDirectory": "releases"
+  },
+  "templates": {
+    "rock-paper-scissors": "https://github.com/smks/nobot-template-rock-paper-scissors"
+  }
+}

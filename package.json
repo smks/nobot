@@ -1,0 +1,48 @@
+{
+  "name": "nobot",
+  "version": "0.0.1",
+  "description": "Provides automation for building Marketing Design Promotions",
+  "main": "index.js",
+  "scripts": {
+    "init": "node ./init.js",
+    "lint": "eslint src",
+    "lintFix": "eslint src/**/*.js --fix",
+    "test": "mocha --recursive"
+  },
+  "bin": {
+    "nobot": "./src/nobot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smks/nobot"
+  },
+  "keywords": [
+    "nobot",
+    "game",
+    "automatingwithnodejs"
+  ],
+  "author": "shaun.stone",
+  "contributors": [],
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "colors": "^1.1.2",
+    "commander": "^2.9.0",
+    "fs-extra": "^5.0.0",
+    "glob": "^7.1.1",
+    "promisify-node": "^0.4.0",
+    "readline-sync": "^1.4.7",
+    "shelljs": "^0.7.7"
+  },
+  "devDependencies": {
+    "chai": "^4",
+    "eslint": "^4",
+    "eslint-config-airbnb": "^16",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1",
+    "mocha": "^4",
+    "mock-require": "^2",
+    "sinon": "^4"
+  }
+}
