@@ -1,15 +1,17 @@
 const { cd, exec } = require('shelljs');
 const { deploy: { baseBranch } } = require('./../../config');
-const deployPath = require('./get-deploy-path');
+const websitePath = require('./get-website-path');
 const log = require('./log');
 const { INFO } = require('./../constants/log-level');
 
-const deployGame = (branchName, projectName, ticketId) => {
-  log(`changing to path ${deployPath}`, INFO);
-  cd(deployPath);
-  log(`staging project ${projectName}`, INFO);
-  exec(`git add ${projectName}`);
-  exec(`git commit -m "${ticketId} - ${projectName} release"`);
+const deployTemplate = (template, version) => {
+  const branchName = `${template}-${version}`;
+  log(`changing to path ${websitePath}`, INFO);
+  cd(websitePath);
+  log(`staging template ${branchName}`, INFO);
+  exec(`git checkout -b ${branchName}`);
+  exec(`git add core/*`);
+  exec(`git commit -m "${template}.${version}"`);
   log(`switching to base branch ${baseBranch}`, INFO);
   exec(`git checkout ${baseBranch} && git pull origin ${baseBranch}`);
   log(`merging ${branchName} into ${baseBranch}`, INFO);
@@ -18,4 +20,4 @@ const deployGame = (branchName, projectName, ticketId) => {
   exec(`git branch -d ${branchName}`);
 };
 
-module.exports = deployGame;
+module.exports = deployTemplate;

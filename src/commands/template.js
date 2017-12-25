@@ -10,6 +10,7 @@ const updateTemplate = require('./../helpers/update-template');
 const log = require('./../helpers/log');
 const readline = require('readline-sync');
 const { SUCCESS, ERROR } = require('./../constants/log-level');
+const deployTemplate = require('./../helpers/deploy-template');
 
 const template = ({ id }) => {
 
@@ -30,14 +31,14 @@ const template = ({ id }) => {
   
   const templateReleaseSource = join(templatePath, 'public', 'core');
   const templateReleaseDestination = deployCorePath;
-
-  console.log(templateReleaseSource, templateReleaseDestination);
+  const templatePackageJson = join(templatePath, 'package.json');
+  const { version } = fs.readJSONSync(templatePackageJson);
 
   fs.copy(templateReleaseSource, templateReleaseDestination)
     .then(() => {
+      deployTemplate(choice, version)
       log('released latest template version', SUCCESS);
     });
-
 };
 
 module.exports = template;
