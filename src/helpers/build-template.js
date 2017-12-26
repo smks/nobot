@@ -1,6 +1,6 @@
 const { cd, exec } = require('shelljs');
 
-const buildTemplate = templatePath => {
+const buildTemplate = (templatePath) => {
   cd(templatePath);
   exec('npm install');
   exec('npm run build');

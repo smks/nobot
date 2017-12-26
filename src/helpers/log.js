@@ -1,5 +1,8 @@
 require('colors');
-const { ERROR, WARNING, INFO, SUCCESS } = require('./../constants/log-level');
+const console = require('console');
+const {
+  ERROR, WARNING, INFO, SUCCESS,
+} = require('./../constants/log-level');
 
 const log = (message, type) => {
   let colorMessage;

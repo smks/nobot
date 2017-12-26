@@ -1,10 +1,7 @@
 const fs = require('fs-extra');
 const { join } = require('path');
-const { cd, exec } = require('shelljs');
 const templatesPath = require('./../helpers/get-templates-path');
-const deployPath = require('./../helpers/get-deploy-core-path');
 const deployCorePath = require('./../helpers/get-deploy-core-path');
-const createDeployBranch = require('./../helpers/create-deploy-branch');
 const buildTemplate = require('./../helpers/build-template');
 const updateTemplate = require('./../helpers/update-template');
 const log = require('./../helpers/log');
@@ -13,7 +10,6 @@ const { SUCCESS, ERROR } = require('./../constants/log-level');
 const deployTemplate = require('./../helpers/deploy-template');
 
 const template = ({ id }) => {
-
   let choice = id;
 
   const templates = fs.readdirSync(templatesPath).filter(t => t.match(/\./) === null);
@@ -28,7 +24,7 @@ const template = ({ id }) => {
   updateTemplate(templatePath);
 
   buildTemplate(templatePath);
-  
+
   const templateReleaseSource = join(templatePath, 'public', 'core');
   const templateReleaseDestination = deployCorePath;
   const templatePackageJson = join(templatePath, 'package.json');
@@ -36,9 +32,10 @@ const template = ({ id }) => {
 
   fs.copy(templateReleaseSource, templateReleaseDestination)
     .then(() => {
-      deployTemplate(choice, version)
+      deployTemplate(choice, version);
       log('released latest template version', SUCCESS);
-    });
+    })
+    .catch(e => log(e, ERROR));
 };
 
 module.exports = template;

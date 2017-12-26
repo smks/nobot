@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "init": "node ./init.js",
-    "lint": "eslint src",
+    "lint": "eslint src/**/*.js",
     "lintFix": "eslint src/**/*.js --fix",
     "test": "mocha --recursive"
   },

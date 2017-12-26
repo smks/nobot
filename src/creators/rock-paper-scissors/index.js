@@ -1,6 +1,5 @@
 const fs = require('fs-extra');
 const { join } = require('path');
-const { cd, exec } = require('shelljs');
 const templatesPath = require('./../../helpers/get-templates-path');
 const deployPath = require('./../../helpers/get-deploy-path');
 const buildTemplate = require('./../../helpers/build-template');
@@ -26,11 +25,11 @@ const create = (ticketId, ticketInformation) => {
   const templateReleaseSource = join(templatePath, 'public');
   const templateReleaseDestination = join(deployPath, projectName);
 
-  const ignoreCoreFiles = (src, dest) => !src.match(/core/);
+  const ignoreCoreFiles = src => !src.match(/core/);
 
   fs.copy(templateReleaseSource, templateReleaseDestination, { filter: ignoreCoreFiles })
     .then(updateValues.bind(null, ticketInformation))
-    .then(newValues => {
+    .then((newValues) => {
       const configFile = join(templateReleaseDestination, 'game.json');
       return fs.writeJsonSync(configFile, newValues, { spaces: 4 });
     })

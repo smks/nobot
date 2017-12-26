@@ -5,9 +5,9 @@ Node Build Tool to automate builds of existing game templates
 ## Install
 
 Ensure these are installed on your machine:
-- Node v6.9 - https://nodejs.org/docs/v6.9.1/api
-- Git - https://git-scm.com/downloads
-- Mocha - https://mochajs.org
+
+- Node v6.9 - <https://nodejs.org/docs/v6.9.1/api>
+- Git - <https://git-scm.com/downloads>
 
 ## Coding Standards
 
@@ -19,14 +19,6 @@ Airbnb standards have been implemented in this project and can be checked by run
 npm run lint
 ```
 
-## Command List
-
-## Unit Testing
-
-```shell
-npm test
-```
-
 ## Issues
-Raise an issue or make a new branch to make amends, then raise a pull request for review. 
-Issues should be categorised. See this link for clarification: https://robinpowered.com/blog/best-practice-system-for-organizing-and-tagging-github-issues/
+
+Raise an issue or make a new branch to make amends, then raise a pull request for review.

@@ -10,7 +10,7 @@ const deployTemplate = (template, version) => {
   cd(websitePath);
   log(`staging template ${branchName}`, INFO);
   exec(`git checkout -b ${branchName}`);
-  exec(`git add core/*`);
+  exec('git add core/*');
   exec(`git commit -m "${template}.${version}"`);
   log(`switching to base branch ${baseBranch}`, INFO);
   exec(`git checkout ${baseBranch} && git pull origin ${baseBranch}`);
