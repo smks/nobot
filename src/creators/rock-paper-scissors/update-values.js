@@ -29,7 +29,9 @@ const updateValues = ({
     newConfig.id = id;
     newConfig.projectName = projectName;
     newConfig.theme.fontFamily = font;
-    newConfig.theme.customStyles = fontUrl;
+    newConfig.customStyles = [
+      fontUrl,
+    ];
     newConfig.theme.path = assetsPath;
     newConfig.labels.rock = labelFirstOption;
     newConfig.labels.paper = labelSecondOption;
