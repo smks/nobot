@@ -19,7 +19,7 @@ nobot
 nobot
   .command('game <ticketId>')
   .description('creates a new game reskin')
-  .action((game));
+  .action(game);
 
 nobot
   .command('template')
@@ -32,3 +32,7 @@ nobot
   .action(() => nobot.help());
 
 nobot.parse(process.argv);
+
+if (!process.argv.slice(2).length) {
+  nobot.help();
+}
