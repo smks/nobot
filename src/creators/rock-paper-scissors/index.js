@@ -8,7 +8,7 @@ const deployGame = require('./../../helpers/deploy-game');
 const log = require('./../../helpers/log');
 const { ROCK_PAPER_SCISSORS } = require('./../../constants/templates');
 const { SUCCESS, ERROR } = require('./../../constants/log-level');
-const updateValues = require('./update-values');
+const transform = require('./transform');
 
 const create = (ticketId, ticketInformation) => {
   const { projectName } = ticketInformation;
@@ -28,7 +28,7 @@ const create = (ticketId, ticketInformation) => {
   const ignoreCoreFiles = src => !src.match(/core/);
 
   fs.copy(templateReleaseSource, templateReleaseDestination, { filter: ignoreCoreFiles })
-    .then(updateValues.bind(null, ticketInformation))
+    .then(transform.bind(null, ticketInformation))
     .then((newValues) => {
       const configFile = join(templateReleaseDestination, 'game.json');
       return fs.writeJsonSync(configFile, newValues, { spaces: 4 });

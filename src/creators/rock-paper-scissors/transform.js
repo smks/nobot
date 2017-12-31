@@ -3,7 +3,7 @@ const path = require('path');
 const repositoryPath = require('./../../helpers/get-repositories-path');
 const { ROCK_PAPER_SCISSORS } = require('./../../constants/templates');
 
-const updateValues = ({
+const transform = ({
   id,
   projectName,
   font,
@@ -51,4 +51,4 @@ const updateValues = ({
   }
 });
 
-module.exports = updateValues;
+module.exports = transform;
