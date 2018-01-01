@@ -18,7 +18,7 @@ nobot
 
 nobot
   .command('game <ticketId>')
-  .description('creates a new game reskin')
+  .description('creates and deploys a new game reskin')
   .action(game);
 
 nobot
