@@ -1,7 +1,7 @@
 const fs = require('fs-extra');
 const { join } = require('path');
 const templatesPath = require('./../../helpers/get-templates-path');
-const deployPath = require('./../../helpers/get-deploy-path');
+const releasePath = require('./../../helpers/get-release-path');
 const buildTemplate = require('./../../helpers/build-template');
 const createDeployBranch = require('./../../helpers/create-deploy-branch');
 const deployGame = require('./../../helpers/deploy-game');
@@ -23,7 +23,7 @@ const create = (ticketId, ticketInformation) => {
 
   // 3. create copy of template & update config values
   const templateReleaseSource = join(templatePath, 'public');
-  const templateReleaseDestination = join(deployPath, projectName);
+  const templateReleaseDestination = join(releasePath, projectName);
 
   const ignoreCoreFiles = src => !src.match(/core/);
 

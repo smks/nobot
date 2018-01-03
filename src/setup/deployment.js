@@ -1,16 +1,15 @@
 const { cd, exec } = require('shelljs');
-const { join } = require('path');
-const log = require('./../helpers/log');
-const repoPath = require('./../helpers/get-repositories-path');
-const { deploy: { name, repo } } = require('./../../config');
 const { existsSync } = require('fs');
+const { deploy: { name, repo } } = require('./../../config');
+const log = require('./../helpers/log');
+const repositoriesPath = require('./../helpers/get-repositories-path');
+const websitePath = require('./../helpers/get-website-path');
 
 const setupDeployment = () => {
-  const deploymentPath = join(repoPath, name);
-  if (existsSync(deploymentPath)) {
-    return log(`Deployment Repository '${deploymentPath}' exists`, 'info');
+  if (existsSync(websitePath)) {
+    return log(`Deployment Repository '${websitePath}' exists`, 'info');
   }
-  cd(repoPath);
+  cd(repositoriesPath);
   return exec(`git clone ${repo} --progress ${name}`);
 };
 

@@ -1,12 +1,12 @@
 const { cd, exec } = require('shelljs');
 const { deploy: { baseBranch } } = require('./../../config');
-const deployPath = require('./get-deploy-path');
+const releasePath = require('./get-release-path');
 const log = require('./log');
 const { INFO } = require('./../constants/log-level');
 
 const deployGame = (branchName, projectName, ticketId) => {
-  log(`changing to path ${deployPath}`, INFO);
-  cd(deployPath);
+  log(`changing to path ${releasePath}`, INFO);
+  cd(releasePath);
   log(`staging project ${projectName}`, INFO);
   exec(`git add ${projectName}`);
   exec(`git commit -m "${ticketId} - ${projectName} release"`);
