@@ -1,9 +1,9 @@
 const { cd, exec } = require('shelljs');
 const { existsSync } = require('fs-extra');
 const { join } = require('path');
-const log = require('./../helpers/log');
-const templatesPath = require('./../helpers/get-templates-path');
-const { templates } = require('./../../config');
+const log = require('../helpers/log');
+const templatesPath = require('../helpers/get-templates-path');
+const { templates } = require('../../config');
 
 const setupTemplates = () => {
   cd(templatesPath);
