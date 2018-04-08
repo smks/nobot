@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { api } = require('./../../config');
+const { api } = require('../../config');
 
 const { authKey, endpoint } = api;
 

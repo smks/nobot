@@ -6,7 +6,7 @@ const buildTemplate = require('../helpers/build-template');
 const updateTemplate = require('../helpers/update-template');
 const log = require('../helpers/log');
 const readline = require('readline-sync');
-const { SUCCESS, ERROR } = require('../constants/log-level');
+const { SUCCESS, ERROR } = require('../constants/log-levels');
 const deployTemplate = require('../helpers/deploy-template');
 
 const template = ({ id }) => {

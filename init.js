@@ -1,7 +1,7 @@
 require('colors');
 const { copy, existsSync } = require('fs-extra');
 const log = require('./src/helpers/log');
-const { SUCCESS, INFO, ERROR } = require('./src/constants/log-level');
+const { SUCCESS, INFO, ERROR } = require('./src/constants/log-levels');
 const shell = require('shelljs');
 
 shell.exec('npm link');
