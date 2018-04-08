@@ -1,6 +1,4 @@
 const { join } = require('path');
-const { deploy } = require('../../config');
-
-const { name, coreDirectory } = deploy;
+const { deploy: { name, coreDirectory } } = require('./../../config');
 
 module.exports = join(__dirname, '..', '..', 'repositories', name, coreDirectory);
