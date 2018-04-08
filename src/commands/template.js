@@ -1,13 +1,13 @@
 const fs = require('fs-extra');
 const { join } = require('path');
-const templatesPath = require('./../helpers/get-templates-path');
-const deployCorePath = require('./../helpers/get-deploy-core-path');
-const buildTemplate = require('./../helpers/build-template');
-const updateTemplate = require('./../helpers/update-template');
-const log = require('./../helpers/log');
+const templatesPath = require('../helpers/get-templates-path');
+const deployCorePath = require('../helpers/get-deploy-core-path');
+const buildTemplate = require('../helpers/build-template');
+const updateTemplate = require('../helpers/update-template');
+const log = require('../helpers/log');
 const readline = require('readline-sync');
-const { SUCCESS, ERROR } = require('./../constants/log-level');
-const deployTemplate = require('./../helpers/deploy-template');
+const { SUCCESS, ERROR } = require('../constants/log-levels');
+const deployTemplate = require('../helpers/deploy-template');
 
 const template = ({ id }) => {
   let choice = id;
