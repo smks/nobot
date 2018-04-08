@@ -1,7 +1,7 @@
 require('colors');
 const console = require('console');
 const {
-  ERROR, WARNING, INFO, SUCCESS,
+  ERROR, WARNING, INFO, SUCCESS
 } = require('../constants/log-levels');
 
 const log = (message, type) => {

@@ -13,17 +13,17 @@ nobot
 
 nobot
   .command('setup')
-  .description('clone all the templates and deployment website')
+  .description('clone repository dependencies')
   .action(setup);
 
 nobot
   .command('game <ticketId>')
-  .description('creates and deploys a new game reskin')
+  .description('create and deploy a new game reskin')
   .action(game);
 
 nobot
   .command('template')
-  .description('releases core of template')
+  .description('release core files of template')
   .option('-i --id [id]', 'what template to release')
   .action(template);
 

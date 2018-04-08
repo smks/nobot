@@ -22,6 +22,8 @@ const template = ({ id }) => {
     choice = templates[index];
   }
 
+  console.log(choice);
+
   const templatePath = join(templatesPath, choice);
 
   updateTemplate(templatePath);

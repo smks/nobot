@@ -7,8 +7,8 @@ const getTicketData = ticketId => axios({
   url: endpoint,
   params: {
     authKey,
-    ticketId,
-  },
+    ticketId
+  }
 });
 
 module.exports = getTicketData;
