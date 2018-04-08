@@ -1,7 +1,7 @@
 const fs = require('fs-extra');
 const path = require('path');
-const repositoryPath = require('./../../helpers/get-repositories-path');
-const { ROCK_PAPER_SCISSORS } = require('./../../constants/templates');
+const repositoryPath = require('../../helpers/get-repositories-path');
+const { ROCK_PAPER_SCISSORS } = require('../../constants/templates');
 
 const transform = ({
   id,
@@ -20,7 +20,7 @@ const transform = ({
   screenResultReplay,
   screenResultFeedbackWon,
   screenResultFeedbackLost,
-  screenResultFeedbackDraw,
+  screenResultFeedbackDraw
 }) => new Promise((resolve, reject) => {
   try {
     const originalTemplateConfigPath = path.join(repositoryPath, 'templates', ROCK_PAPER_SCISSORS, 'public', 'game.json');
@@ -30,7 +30,7 @@ const transform = ({
     newConfig.projectName = projectName;
     newConfig.theme.fontFamily = font;
     newConfig.customStyles = [
-      fontUrl,
+      fontUrl
     ];
     newConfig.theme.path = assetsPath;
     newConfig.labels.rock = labelFirstOption;
