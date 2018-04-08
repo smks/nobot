@@ -1,4 +1,4 @@
-const fs = require('fs-extra');
+const fse = require('fs-extra');
 const { join } = require('path');
 const templatesPath = require('../helpers/get-templates-path');
 const deployCorePath = require('../helpers/get-deploy-core-path');
@@ -12,17 +12,16 @@ const deployTemplate = require('../helpers/deploy-template');
 const template = ({ id }) => {
   let choice = id;
 
-  const templates = fs.readdirSync(templatesPath).filter(t => t.match(/\./) === null);
+  const templates = fse.readdirSync(templatesPath).filter(t => t.match(/\./) === null);
 
   if (choice === undefined || templates.includes(choice) === false) {
     const index = readline.keyInSelect(templates, 'choose template to release ');
     if (index === -1) {
+      log('template release cancelled', ERROR);
       process.exit(0);
     }
     choice = templates[index];
   }
-
-  console.log(choice);
 
   const templatePath = join(templatesPath, choice);
 
@@ -33,9 +32,9 @@ const template = ({ id }) => {
   const templateReleaseSource = join(templatePath, 'public', 'core');
   const templateReleaseDestination = deployCorePath;
   const templatePackageJson = join(templatePath, 'package.json');
-  const { version } = fs.readJSONSync(templatePackageJson);
+  const { version } = fse.readJSONSync(templatePackageJson);
 
-  fs.copy(templateReleaseSource, templateReleaseDestination)
+  fse.copy(templateReleaseSource, templateReleaseDestination)
     .then(() => {
       deployTemplate(choice, version);
       log('released latest template version', SUCCESS);

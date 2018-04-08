@@ -1,7 +1,5 @@
 const axios = require('axios');
-const { api } = require('../../config');
-
-const { authKey, endpoint } = api;
+const { api: { authKey, endpoint } } = require('../../config');
 
 const getTicketData = ticketId => axios({
   url: endpoint,

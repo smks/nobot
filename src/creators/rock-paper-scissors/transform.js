@@ -1,4 +1,4 @@
-const fs = require('fs-extra');
+const fse = require('fs-extra');
 const path = require('path');
 const repositoryPath = require('../../helpers/get-repositories-path');
 const { ROCK_PAPER_SCISSORS } = require('../../constants/templates');
@@ -24,7 +24,7 @@ const transform = ({
 }) => new Promise((resolve, reject) => {
   try {
     const originalTemplateConfigPath = path.join(repositoryPath, 'templates', ROCK_PAPER_SCISSORS, 'public', 'game.json');
-    const originalTemplateConfig = fs.readJsonSync(originalTemplateConfigPath);
+    const originalTemplateConfig = fse.readJsonSync(originalTemplateConfigPath);
     const newConfig = originalTemplateConfig;
     newConfig.id = id;
     newConfig.projectName = projectName;
