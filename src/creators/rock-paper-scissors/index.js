@@ -1,4 +1,4 @@
-const fs = require('fs-extra');
+const fse = require('fs-extra');
 const { join } = require('path');
 const templatesPath = require('../../helpers/get-templates-path');
 const releasePath = require('../../helpers/get-release-path');
@@ -27,11 +27,11 @@ const create = (ticketId, ticketInformation) => {
 
   const ignoreCoreFiles = src => !src.match(/core/);
 
-  fs.copy(templateReleaseSource, templateReleaseDestination, { filter: ignoreCoreFiles })
+  fse.copy(templateReleaseSource, templateReleaseDestination, { filter: ignoreCoreFiles })
     .then(transform.bind(null, ticketInformation))
     .then((newValues) => {
       const configFile = join(templateReleaseDestination, 'game.json');
-      return fs.writeJsonSync(configFile, newValues, { spaces: 4 });
+      return fse.writeJsonSync(configFile, newValues, { spaces: 4 });
     })
     .then(() => {
       log(`built ${templateReleaseDestination}`, SUCCESS);
