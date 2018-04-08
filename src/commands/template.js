@@ -12,11 +12,11 @@ const deployTemplate = require('../helpers/deploy-template');
 const template = ({ id }) => {
   let choice = id;
 
-  const templates = fs.readdirSync(templatesPath).filter(t => t.match(/\./) === null);
-
   if (choice === undefined || templates.includes(choice) === false) {
+    const templates = fs.readdirSync(templatesPath).filter(t => t.match(/\./) === null);
     const index = readline.keyInSelect(templates, 'choose template to release ');
     if (index === -1) {
+      console.log('template release cancelled')
       process.exit(0);
     }
     choice = templates[index];
