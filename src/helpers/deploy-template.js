@@ -1,5 +1,5 @@
 const { cd, exec } = require('shelljs');
-const { deploy: { baseBranch } } = require('../../config');
+const { deploy: { baseBranch }, templates } = require('../../config');
 const websitePath = require('./get-website-path');
 const log = require('./log');
 const { INFO } = require('../constants/log-levels');
@@ -8,6 +8,7 @@ const deployTemplate = (template, version) => {
   const branchName = `${template}-${version}`;
   log(`changing to path ${websitePath}`, INFO);
   cd(websitePath);
+  exec(`git pull origin ${baseBranch}`);
   log(`staging template ${branchName}`, INFO);
   exec(`git checkout -b ${branchName}`);
   exec('git add core/*');

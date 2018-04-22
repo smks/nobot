@@ -24,7 +24,7 @@ nobot
 nobot
   .command('template')
   .description('release core files of template')
-  .option('-i --id [id]', 'what template to release')
+  .option('-i, --id, [id]', 'what template to release')
   .action(template);
 
 nobot

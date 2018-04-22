@@ -1,8 +1,9 @@
 const { cd, exec } = require('shelljs');
-const { deploy: { baseBranch } } = require('../../config');
+const { templates } = require('../../config');
 
-const updateTemplate = (templatePath) => {
+const updateTemplate = (template, templatePath) => {
   cd(templatePath);
+  const { baseBranch } = templates[template];
   exec(`git pull origin ${baseBranch}`);
 };
 

@@ -1,7 +1,8 @@
 const fse = require('fs-extra');
 const path = require('path');
-const repositoryPath = require('../../helpers/get-repositories-path');
+const templatesPath = require('../../helpers/get-templates-path');
 const { ROCK_PAPER_SCISSORS } = require('../../constants/templates');
+const { GAME_JSON } = require('../../constants/common');
 
 const transform = ({
   id,
@@ -23,7 +24,12 @@ const transform = ({
   screenResultFeedbackDraw
 }) => new Promise((resolve, reject) => {
   try {
-    const originalTemplateConfigPath = path.join(repositoryPath, 'templates', ROCK_PAPER_SCISSORS, 'public', 'game.json');
+    const originalTemplateConfigPath = path.join(
+      templatesPath,
+      ROCK_PAPER_SCISSORS,
+      'public',
+      GAME_JSON
+    );
     const originalTemplateConfig = fse.readJsonSync(originalTemplateConfigPath);
     const newConfig = originalTemplateConfig;
     newConfig.id = id;

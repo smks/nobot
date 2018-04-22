@@ -5,8 +5,9 @@ const deployCorePath = require('../helpers/get-deploy-core-path');
 const buildTemplate = require('../helpers/build-template');
 const updateTemplate = require('../helpers/update-template');
 const log = require('../helpers/log');
-const readline = require('readline-sync');
+const readlineSync = require('readline-sync');
 const { SUCCESS, ERROR } = require('../constants/log-levels');
+const { NO_CHOICE_MADE } = require('../constants/common');
 const deployTemplate = require('../helpers/deploy-template');
 
 const template = ({ id }) => {
@@ -15,8 +16,8 @@ const template = ({ id }) => {
   const templates = fse.readdirSync(templatesPath).filter(t => t.match(/\./) === null);
 
   if (choice === undefined || templates.includes(choice) === false) {
-    const index = readline.keyInSelect(templates, 'choose template to release ');
-    if (index === -1) {
+    const index = readlineSync.keyInSelect(templates, 'choose template to release ');
+    if (index === NO_CHOICE_MADE) {
       log('template release cancelled', ERROR);
       process.exit(0);
     }
@@ -25,14 +26,14 @@ const template = ({ id }) => {
 
   const templatePath = join(templatesPath, choice);
 
-  updateTemplate(templatePath);
+  updateTemplate(choice, templatePath);
 
   buildTemplate(templatePath);
 
   const templateReleaseSource = join(templatePath, 'public', 'core');
   const templateReleaseDestination = deployCorePath;
   const templatePackageJson = join(templatePath, 'package.json');
-  const { version } = fse.readJSONSync(templatePackageJson);
+  const { version } = require(templatePackageJson);
 
   fse.copy(templateReleaseSource, templateReleaseDestination)
     .then(() => {

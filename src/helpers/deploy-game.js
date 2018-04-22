@@ -7,6 +7,7 @@ const { INFO } = require('../constants/log-levels');
 const deployGame = (branchName, projectName, ticketId) => {
   log(`changing to path ${releasePath}`, INFO);
   cd(releasePath);
+  exec(`git pull origin ${baseBranch}`);
   log(`staging project ${projectName}`, INFO);
   exec(`git add ${projectName}`);
   exec(`git commit -m "${ticketId} - ${projectName} release"`);

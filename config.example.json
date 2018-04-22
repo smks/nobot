@@ -11,6 +11,9 @@
     "releaseDirectory": "releases"
   },
   "templates": {
-    "rock-paper-scissors": "https://github.com/smks/nobot-template-rock-paper-scissors"
+    "rock-paper-scissors": {
+      "baseBranch": "master",
+      "repo": "https://github.com/smks/nobot-template-rock-paper-scissors"
+    }
   }
 }

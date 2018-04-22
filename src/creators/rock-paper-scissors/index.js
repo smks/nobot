@@ -7,7 +7,8 @@ const createDeployBranch = require('../../helpers/create-deploy-branch');
 const deployGame = require('../../helpers/deploy-game');
 const log = require('../../helpers/log');
 const { ROCK_PAPER_SCISSORS } = require('../../constants/templates');
-const { SUCCESS, ERROR } = require('../../constants/log-levels');
+const { INFO, SUCCESS, ERROR } = require('../../constants/log-levels');
+const { GAME_JSON } = require('../../constants/common');
 const transform = require('./transform');
 
 const create = (ticketId, ticketInformation) => {
@@ -28,13 +29,14 @@ const create = (ticketId, ticketInformation) => {
   const ignoreCoreFiles = src => !src.match(/core/);
 
   fse.copy(templateReleaseSource, templateReleaseDestination, { filter: ignoreCoreFiles })
-    .then(transform.bind(null, ticketInformation))
+    .then(() => transform(ticketInformation))
     .then((newValues) => {
-      const configFile = join(templateReleaseDestination, 'game.json');
+      const configFile = join(templateReleaseDestination, GAME_JSON);
       return fse.writeJsonSync(configFile, newValues, { spaces: 4 });
     })
     .then(() => {
       log(`built ${templateReleaseDestination}`, SUCCESS);
+      log(`deploying ${branchName}`, INFO);
       deployGame(branchName, projectName, ticketId);
     })
     .catch(e => log(e, ERROR));

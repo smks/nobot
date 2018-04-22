@@ -1,9 +1,9 @@
 const { cd, exec } = require('shelljs');
-const { existsSync } = require('fs-extra');
+const { existsSync } = require('fs');
 const { join } = require('path');
 const log = require('../helpers/log');
 const templatesPath = require('../helpers/get-templates-path');
-const { templates } = require('../../config');
+const { templates: { baseBranch, url } } = require('../../config');
 
 const setupTemplates = () => {
   cd(templatesPath);
@@ -13,7 +13,8 @@ const setupTemplates = () => {
       return log(`Template ${template} exists`, 'info');
     }
     log(`Downloading ${template}`, 'info');
-    return exec(`git clone ${templates[template]} --progress ${template}`);
+    const { url } = templates[template];
+    return exec(`git clone ${url} --progress ${template}`);
   });
 };
 
