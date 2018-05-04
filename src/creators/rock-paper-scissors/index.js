@@ -8,7 +8,7 @@ const deployGame = require('../../helpers/deploy-game');
 const log = require('../../helpers/log');
 const { ROCK_PAPER_SCISSORS } = require('../../constants/templates');
 const { INFO, SUCCESS, ERROR } = require('../../constants/log-levels');
-const { GAME_JSON } = require('../../constants/common');
+const { JSON_WHITESPACE, GAME_JSON } = require('../../constants/common');
 const transform = require('./transform');
 
 const create = (ticketId, ticketInformation) => {
@@ -32,7 +32,7 @@ const create = (ticketId, ticketInformation) => {
     .then(() => transform(ticketInformation))
     .then((newValues) => {
       const configFile = join(templateReleaseDestination, GAME_JSON);
-      return fse.writeJsonSync(configFile, newValues, { spaces: 4 });
+      return fse.writeJsonSync(configFile, newValues, { spaces: JSON_WHITESPACE });
     })
     .then(() => {
       log(`built ${templateReleaseDestination}`, SUCCESS);
