@@ -2,6 +2,11 @@
 
 Node Build Tool to automate builds of existing game templates
 
+Colour Print: http://amzn.eu/aA0cSnu
+Kindle: http://amzn.eu/dVSykv1
+Kobo: https://www.kobo.com/gb/en/ebook/automating-with-node-js
+Leanpub: https://leanpub.com/automatingwithnodejs
+
 ## Install
 
 Ensure these are installed on your machine:
