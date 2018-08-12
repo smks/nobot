@@ -14,7 +14,7 @@ const setupTemplates = () => {
     }
     log(`Downloading ${template}`, 'info');
     const { baseBranch, repo } = templates[template];
-    return exec(`git clone ${repo} --branch ${baseBranch} --progress ${template}`);
+    return exec(`git clone ${repo} --branch ${baseBranch} --progress ${templatePath}`);
   });
 };
 
