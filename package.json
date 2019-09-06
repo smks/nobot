@@ -25,14 +25,14 @@
   "contributors": [],
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.17.1",
-    "colors": "^1.1.2",
-    "commander": "^2.9.0",
-    "fs-extra": "^5.0.0",
-    "glob": "^7.1.1",
-    "promisify-node": "^0.4.0",
-    "readline-sync": "^1.4.7",
-    "shelljs": "^0.7.7"
+    "axios": "0.17.1",
+    "colors": "1.1.2",
+    "commander": "2.9.0",
+    "fs-extra": "5.0.0",
+    "glob": "7.1.1",
+    "promisify-node": "0.4.0",
+    "readline-sync": "1.4.7",
+    "shelljs": "0.7.7"
   },
   "devDependencies": {
     "chai": "^4",
