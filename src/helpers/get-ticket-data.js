@@ -1,5 +1,8 @@
 const axios = require('axios');
-const { api: { authKey, endpoint } } = require('../../config');
+
+const { api: { authKey, endpoint } } =
+
+require('../../config');
 
 const getTicketData = ticketId => axios({
   url: endpoint,
@@ -8,5 +11,4 @@ const getTicketData = ticketId => axios({
     ticketId
   }
 });
-
 module.exports = getTicketData;

@@ -1,4 +1,5 @@
 require('colors');
+
 const {
   ERROR, WARNING, INFO, SUCCESS
 } = require('../constants/log-levels');
@@ -23,5 +24,4 @@ const log = (message, type) => {
   }
   console.log(colorMessage);
 };
-
 module.exports = log;
