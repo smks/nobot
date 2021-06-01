@@ -25,11 +25,12 @@
   "contributors": [],
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.21.1",
     "colors": "^1.1.2",
     "commander": "^2.9.0",
     "fs-extra": "^5.0.0",
     "glob": "^7.1.1",
+    "npm": "^7.15.1",
     "promisify-node": "^0.4.0",
     "readline-sync": "^1.4.7",
     "shelljs": "^0.7.7"
@@ -41,7 +42,7 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
-    "mocha": "^4",
+    "mocha": "^8.4.0",
     "mock-require": "^2",
     "sinon": "^4"
   }

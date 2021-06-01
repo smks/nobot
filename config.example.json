@@ -6,14 +6,14 @@
   "deploy": {
     "baseBranch": "master",
     "name": "website",
-    "repo": "https://github.com/smks/nobot-website.git",
+    "repo": "https://github.com/farrukhras/nobot-website.git",
     "coreDirectory": "core",
     "releaseDirectory": "releases"
   },
   "templates": {
     "rock-paper-scissors": {
       "baseBranch": "master",
-      "repo": "https://github.com/smks/nobot-template-rock-paper-scissors"
+      "repo": "https://github.com/farrukhras/nobot-template-rock-paper-scissors.git"
     }
   }
 }
