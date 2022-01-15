@@ -32,7 +32,7 @@
     "glob": "7.1.1",
     "promisify-node": "0.4.0",
     "readline-sync": "1.4.7",
-    "shelljs": "0.7.7"
+    "shelljs": "0.8.5"
   },
   "devDependencies": {
     "chai": "^4",
