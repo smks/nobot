@@ -1,7 +1,7 @@
 {
   "api": {
     "authKey": "SECRET",
-    "endpoint": "http://opencanvas.co.uk/nira/rest/api/latest/ticket"
+    "endpoint": "https://smks.co.uk/nira/rest/api/latest/ticket"
   },
   "deploy": {
     "baseBranch": "master",
